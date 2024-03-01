@@ -1,0 +1,57 @@
+{
+  "general": {
+    "score": "分",
+    "close": "關閉",
+    "minute": "分",
+    "second": "秒"
+  },
+  "login": {
+    "title": "登錄",
+    "account": "帳號",
+    "password": "密碼",
+    "login": "登錄",
+    "reset": "重設",
+    "loading": "登錄中...",
+    "account_empty": "請輸入帳號",
+    "password_empty": "請輸入密碼"
+  },
+  "gamebox": {
+    "empty": "目前沒有題目",
+    "list": "所有靶機",
+    "team": "所屬隊伍",
+    "challenge": "所屬題目",
+    "address": "IP"
+  },
+  "flag": {
+    "submit_flag": "提交 Flag",
+    "submit": "提交",
+    "input_your_flag": "請輸入你的 Flag"
+  },
+  "log": {
+    "live_log": "即時動態",
+    "no_data": "暫無動態",
+    "submit_flag": "{from} 攻陷了 {to} [ {challenge} ]",
+    "check_down": "{team} [ {challenge} ] 服務當機"
+  },
+  "timer": {
+    "not_begin": "比賽未開始",
+    "pause": "比賽已暫停",
+    "end": "比賽已結束",
+    "til_round_end": "距離第 {round} 輪結束還有"
+  },
+  "bulletin": {
+    "empty": "暫無公告"
+  },
+  "rank": {
+    "rank": "排名",
+    "team": "隊伍",
+    "score": "分數"
+  },
+  "header": {
+    "status": "靶機狀態",
+    "rank": "排名",
+    "bulletin": "公告",
+    "logout": "登出"
+  }
+}
+
