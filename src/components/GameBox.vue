@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- 靶机信息 -->
+        <!-- 靶機資訊 -->
         <div v-if="gameBoxes !== null">
             <v-list-item v-for="gameBox in gameBoxes" :key="gameBox.ID"
                          @click="()=>{gameBoxDetail = gameBox; showDetail = true}">
@@ -27,7 +27,7 @@
             <p>{{$t('gamebox.empty')}}</p>
         </v-list-item>
 
-        <!-- 靶机详细信息 -->
+        <!-- 靶機詳細資訊 -->
         <v-dialog width="500" v-model="showDetail">
             <v-card>
                 <v-card-title class="headline" primary-title>
