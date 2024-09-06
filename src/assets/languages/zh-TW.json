@@ -3,7 +3,8 @@
     "score": "分",
     "close": "關閉",
     "minute": "分",
-    "second": "秒"
+    "second": "秒",
+    "start": "開始解題"
   },
   "login": {
     "title": "登錄",

@@ -3,7 +3,8 @@
     "score": "",
     "close": "Close",
     "minute": "Minute",
-    "second": "Second"
+    "second": "Second",
+    "start": "Start Solving"
   },
   "login": {
     "title": "Login",
