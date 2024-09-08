@@ -35,6 +35,7 @@
 
 <script>
     import axios from "axios";
+    import { EventBus } from '../router.js';
 
     export default {
         name: "SubmitFlag",
@@ -46,10 +47,16 @@
             message: '',
             snackBarVisible: false,
             snackBarColor: 'success',
+            startTime: null,
+            endTime: null,
+            elapsedTime: '',
         }),
 
         mounted() {
             this.getInfo()
+            EventBus.$on('start-time', (time) => {
+            this.startTime = time;
+            });
         },
 
         methods: {
@@ -59,8 +66,10 @@
                 })
             },
             submitFlag() {
+                this.recordSolveTime();
                 axios.post(this.utils.baseURL + '/flag', {
-                    'flag': this.inputFlag
+                    'flag': this.inputFlag,
+                    'time': this.elapsedTime
                 }, {
                     headers: {
                         'Authorization': this.info.Token
@@ -82,6 +91,21 @@
                     return `curl -X POST ${window.location.origin}/api/flag -H "Authorization: ${this.info.Token}" -d "{ \\"flag\\": \\"your_flag_here\\" }"`
                 }
                 return `curl -X POST ${window.location.origin}/api/flag -H 'Authorization: ${this.info.Token}' -d '{ "flag": "your_flag_here" }'`
+            },
+            recordSolveTime() {
+                // 記錄結束時間
+                this.endTime = Date.now();
+
+                // 確保有 startTime 才進行計算
+                if (this.startTime) {
+                    // 計算解題時間，單位為秒
+                    this.elapsedTime = (this.endTime - this.startTime) / 1000;
+
+                    // 這裡可以發送請求將 elapsedTime 更新到後端
+                    console.log(`Elapsed time: ${this.elapsedTime} seconds`);
+                } else {
+                    console.error('Start time is not available.');
+                }
             }
         }
     }

@@ -31,7 +31,7 @@
   "log": {
     "live_log": "即時動態",
     "no_data": "暫無動態",
-    "submit_flag": "{from} 攻陷了 {to} [ {challenge} ]",
+    "submit_flag": "{from} 攻陷了 [ {challenge} ]，共花費 {time} 秒",
     "check_down": "{team} [ {challenge} ] 服務當機"
   },
   "timer": {

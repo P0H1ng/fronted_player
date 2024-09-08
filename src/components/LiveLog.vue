@@ -45,8 +45,10 @@
                                     'from': data['Message']['From'],
                                     'to': data['Message']['To'],
                                     'challenge': data['Message']['Challenge'],
+                                    'time': data['Message']['Time'],
                                 })
                             })
+                            console.log(event.data);
                             break;
                         case 'check_down':
                             this.push({

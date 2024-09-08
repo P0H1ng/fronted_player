@@ -17,7 +17,7 @@
                         <v-chip class="ma-2" color="orange" text-color="orange" outlined>Down</v-chip>
                     </div>
                     <div v-if="gameBox.IsAttacked">
-                        <v-chip class="ma-2" color="red" text-color="red" outlined>Attacked</v-chip>
+                        <v-chip class="ma-2" color="red" text-color="red" outlined>Solved</v-chip>
                     </div>
                 </v-list-item-action>
             </v-list-item>
@@ -50,6 +50,7 @@
 
 
 <script>
+import { EventBus } from '../router.js';
 export default {
     name: "GameBox",
     $activeDialogId: null,
@@ -71,7 +72,10 @@ export default {
             startForm: {
                 From: null,
                 To: null,
-            }
+            },
+
+            startTime: null,
+            endTime: null,
         }
     },
 
@@ -88,7 +92,13 @@ export default {
 
         getGameboxes() {
             this.utils.GET("/team/gameboxes").then(res => {
-                this.gameBoxes = res;
+                this.gameBoxes = res.map(gameBox => {
+                    return {
+                        ...gameBox,
+                        IsAttacked: !!gameBox.IsAttacked,  // 確保屬性是反應式
+                        IsDown: !!gameBox.IsDown
+                    };
+                });
             });
         },
 
@@ -111,7 +121,9 @@ export default {
             this.startForm.From = this.info.Id;
             this.startForm.To = id;
             // console.log(this.$activeDialogId);
-            // console.log(`Activating box with ID: ${id}`);
+            // console.log()`Activating box with ID: ${id}`);
+            this.startTime = Date.now();  // 紀錄按下開始按鈕的時間戳
+            EventBus.$emit('start-time', this.startTime);
             this.start();
         },
 
